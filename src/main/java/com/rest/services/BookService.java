@@ -2,6 +2,7 @@ package com.rest.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -40,6 +41,12 @@ public class BookService {
 	{
 		list.add(b);
 		return b;
+	}
+	
+	//delete book
+	public void deleteBook(int bid)
+	{
+		list=list.stream().filter(book->book.getId()!=bid).collect(Collectors.toList());
 	}
 
 }
